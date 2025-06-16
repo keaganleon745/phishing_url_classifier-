@@ -2,7 +2,7 @@
 
 This project is a simple machine learning tool to classify URLs as **phishing** or **legitimate** using basic features extracted from the URL string itself.
 
-It uses **Python**, **scikit-learn**, and a public dataset from sources like [PhishTank](https://www.phishtank.com/) or [Kaggle](https://www.kaggle.com/datasets/sid321axn/phishing-site-url).
+It uses **Python**, **scikit-learn**, and a public dataset from sources like [PhishTank](https://www.phishtank.com/) or [Kaggle]([https://www.kaggle.com/datasets/sid321axn/phishing-site-url](https://www.kaggle.com/datasets/taruntiwarihp/phishing-site-urls)).
 
 ---
 
