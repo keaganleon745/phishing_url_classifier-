@@ -8,7 +8,7 @@ It uses **Python**, **scikit-learn**, and a public dataset from sources like [Ph
 
 ## Why This Project?
 
-Phishing is one of the most common and effective attack vectors in cybersecurity. This project shows how **machine learning** can be applied to detect phishing attempts using features that can be derived without visiting the webpage.
+Phishing is one of the most common and effective attack vectors in cybersecurity. This project shows how machine learning (ML) can be applied to detect phishing attempts using features that can be derived without visiting the webpage.
 
 ---
 
