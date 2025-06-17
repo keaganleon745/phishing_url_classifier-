@@ -36,4 +36,25 @@ These features help the model distinguish suspicious URLs from legitimate ones.
 - matplotlib (optional for visualization)
 
 ---
+## How to Run Program
 
+### 1. Clone the Repo
+```bash
+git clone https://github.com/yourusername/phishing_url_classifier.git
+cd phishing_url_classifier
+```
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+or
+
+```bash
+pip install pandas scikit-learn tldextract matplotlib
+```
+
+### 3. Launch Python Script
+```bash
+python phishing_detector.py
+```
