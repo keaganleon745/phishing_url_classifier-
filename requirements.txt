@@ -1,0 +1,7 @@
+pandas
+scikit-learn
+tldextract
+matplotlib
+
+#optional
+jupyter
