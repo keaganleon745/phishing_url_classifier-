@@ -62,3 +62,6 @@ pip install pandas scikit-learn tldextract matplotlib
 ```bash
 python phishing_detector.py
 ```
+## Example Results
+
+---
