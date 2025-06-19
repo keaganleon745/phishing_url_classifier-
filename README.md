@@ -27,13 +27,17 @@ These features help the model distinguish suspicious URLs from legitimate ones.
 
 ## Tools and Libraries
 
-- Python 3.x
-- Jupyter Notebook
-- [pandas](https://pandas.pydata.org/)
-- [scikit-learn](https://scikit-learn.org/)
-- [tldextract](https://github.com/john-kurkowski/tldextract)
-- re (regex)
-- matplotlib (optional for visualization)
+| Library          | Purpose                                                                          |
+| ---------------- | -------------------------------------------------------------------------------- |
+| **Python 3.x**   | The main programming language used for building and running the script           |
+| **pandas**       | For loading, exploring, and manipulating the phishing dataset                    |
+| **numpy**        | Used for numerical operations and array handling                                 |
+| **scikit-learn** | For model training, evaluation, and preprocessing                                |
+| **tldextract**   | Extracts top-level domains (TLDs) from URLs                                      |
+| **matplotlib**   | Visualizes feature importance from the trained model                             |
+| **re**           | Built-in Python module for working with regular expressions (e.g., IP detection) |
+| **warnings**     | Used to suppress warnings during execution                                       |
+
 
 ---
 ## How to Run Program
