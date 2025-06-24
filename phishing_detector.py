@@ -31,10 +31,10 @@ def load_data(file_path):
             raise ValueError("Dataset must contain 'URL' and 'Label' columns.")
         return df
     except FileNotFoundError:
-        print(f"❌ File not found: {file_path}")
+        print(f"File not found: {file_path}")
         exit()
     except Exception as e:
-        print(f"❌ Error loading data: {e}")
+        print(f"Error loading data: {e}")
         exit()
 
 
@@ -45,7 +45,7 @@ def preprocess_data(df):
 
     df['Label'] = df['Label'].astype(str).str.lower().str.strip()
 
-    print("\n📊 Label samples from file:", df['Label'].unique())
+    print("\nLabel samples from file:", df['Label'].unique())
 
     label_map = {'bad': 1, 'good': 0}
     y = df['Label'].map(label_map)
@@ -54,7 +54,7 @@ def preprocess_data(df):
     X = X.loc[valid_rows]
     y = y.loc[valid_rows].astype(int)
 
-    print("\n✅ Valid labels:", y.value_counts(dropna=False))
+    print("\nValid labels:", y.value_counts(dropna=False))
 
     return train_test_split(X, y, test_size=0.2, random_state=42), X.columns
 
@@ -64,7 +64,7 @@ def train_and_evaluate(X_train, X_test, y_train, y_test):
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
 
-    print("\n📊 Classification Report:")
+    print("\nClassification Report:")
     print(classification_report(y_test, y_pred))
 
     return model
@@ -83,12 +83,12 @@ def plot_feature_importance(model, feature_names):
 
 
 def main():
-    print("🚀 Phishing URL Classifier starting...\n")
+    print("Phishing URL Classifier starting...\n")
     df = load_data('phishing_site_urls.csv')
     (X_train, X_test, y_train, y_test), feature_names = preprocess_data(df)
     model = train_and_evaluate(X_train, X_test, y_train, y_test)
     plot_feature_importance(model, feature_names)
-    print("\n✅ Done!")
+    print("\nDone!")
 
 
 if __name__ == '__main__':
