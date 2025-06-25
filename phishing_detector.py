@@ -44,10 +44,7 @@ def preprocess_data(df):
     X = pd.get_dummies(X, columns=['tld'])
 
     df['Label'] = df['Label'].astype(str).str.lower().str.strip()
-
-    print("\nLabel samples from file:", df['Label'].unique())
-
-    label_map = {'bad': 1, 'good': 0}
+    label_map = {'bad': 1, 'good': 0}  # Adjust based on your dataset
     y = df['Label'].map(label_map)
 
     valid_rows = y.notna()
@@ -55,7 +52,6 @@ def preprocess_data(df):
     y = y.loc[valid_rows].astype(int)
 
     print("\nValid labels:", y.value_counts(dropna=False))
-
     return train_test_split(X, y, test_size=0.2, random_state=42), X.columns
 
 
@@ -80,16 +76,3 @@ def plot_feature_importance(model, feature_names):
     plt.xticks(range(len(feature_names)), feature_names[indices], rotation=90)
     plt.tight_layout()
     plt.show()
-
-
-def main():
-    print("Phishing URL Classifier starting...\n")
-    df = load_data('phishing_site_urls.csv')
-    (X_train, X_test, y_train, y_test), feature_names = preprocess_data(df)
-    model = train_and_evaluate(X_train, X_test, y_train, y_test)
-    plot_feature_importance(model, feature_names)
-    print("\nDone!")
-
-
-if __name__ == '__main__':
-    main()
