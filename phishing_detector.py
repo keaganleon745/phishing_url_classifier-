@@ -11,7 +11,7 @@ from sklearn.metrics import classification_report
 # Suppress warnings
 warnings.filterwarnings('ignore')
 
-
+# Extract features from a single URL
 def extract_features(url):
     extracted = tldextract.extract(url)
     return {
@@ -23,7 +23,7 @@ def extract_features(url):
         'tld': extracted.suffix
     }
 
-
+# Load CSV file and verify necessary columns
 def load_data(file_path):
     try:
         df = pd.read_csv(file_path)
@@ -37,16 +37,20 @@ def load_data(file_path):
         print(f"Error loading data: {e}")
         exit()
 
-
+# Preprocess data by extract features, encode TLDs, clean labels
 def preprocess_data(df):
     features = df['URL'].apply(extract_features)
     X = pd.DataFrame(features.tolist())
     X = pd.get_dummies(X, columns=['tld'])
-
+    
+    # Normalize labels to lowercase and remove extra spaces
     df['Label'] = df['Label'].astype(str).str.lower().str.strip()
+
+    # Map 'bad' to 1 (phishing), 'good' to 0 (legitimate)
     label_map = {'bad': 1, 'good': 0}  # Adjust based on your dataset
     y = df['Label'].map(label_map)
 
+    # Keep only valid rows with mapped labels
     valid_rows = y.notna()
     X = X.loc[valid_rows]
     y = y.loc[valid_rows].astype(int)
@@ -54,7 +58,7 @@ def preprocess_data(df):
     print("\nValid labels:", y.value_counts(dropna=False))
     return train_test_split(X, y, test_size=0.2, random_state=42), X.columns
 
-
+# Train a Random Forest classifier and evaluate results
 def train_and_evaluate(X_train, X_test, y_train, y_test):
     model = RandomForestClassifier(n_estimators=100, random_state=42)
     model.fit(X_train, y_train)
@@ -65,7 +69,7 @@ def train_and_evaluate(X_train, X_test, y_train, y_test):
 
     return model
 
-
+# Visualize the most important features used in the model
 def plot_feature_importance(model, feature_names):
     importances = model.feature_importances_
     indices = np.argsort(importances)[::-1]
