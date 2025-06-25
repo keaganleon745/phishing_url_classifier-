@@ -60,7 +60,7 @@ pip install pandas scikit-learn tldextract matplotlib
 
 ### 3. Launch Python Script
 ```bash
-run = "python phishing_detector.py"
+run = "python main.py"
 ```
 ## Example Results
 Coming soon!
