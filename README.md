@@ -63,7 +63,7 @@ pip install pandas scikit-learn tldextract matplotlib
 run = "python main.py"
 ```
 ## Example Results
-![image](https://github.com/user-attachments/assets/b2d8cbad-9d61-4a8b-8ba6-31be1b7cf5d4)
+![image](https://github.com/user-attachments/assets/18749c57-5a09-4489-98d5-9391cc217a09)
 
 ---
 ## Conclusion
