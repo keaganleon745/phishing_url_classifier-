@@ -63,5 +63,13 @@ pip install pandas scikit-learn tldextract matplotlib
 run = "python main.py"
 ```
 ## Example Results
-Coming soon!
+![image](https://github.com/user-attachments/assets/b2d8cbad-9d61-4a8b-8ba6-31be1b7cf5d4)
+
 ---
+## Conclusion
+
+Overall, the phishing URL classifier did a good job. It got 82% accuracy, which is pretty respectable for a basic model using only URL string features. It was especially good at spotting legitimate URLs with a 96% recall, meaning it rarely flagged safe sites as phishing.
+
+That said, it did struggle a bit with catching phishing URLs, only identifying about 56% of them. That’s a concern, since in real-world use, false negatives (missed phishing sites) can be risky.
+
+To improve things, there’s a lot of room to experiment. Adding more features like suspicious keywords, WHOIS data, or domain entropy could help. Trying out other models like XGBoost or tweaking the Random Forest parameters could also boost performance. And since the data is a bit imbalanced, using class weights or oversampling might help the model take phishing URLs more seriously.
