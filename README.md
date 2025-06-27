@@ -65,6 +65,9 @@ run = "python main.py"
 ## Example Results
 ![image](https://github.com/user-attachments/assets/18749c57-5a09-4489-98d5-9391cc217a09)
 
+- good = 0
+- bad = 1
+
 ---
 ## Conclusion
 
